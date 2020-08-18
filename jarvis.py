@@ -31,8 +31,9 @@ def wishMe():
     else:
         speak("Good Evening!")
 
-    speak("I am Jarvis Sir. Please tell me how may I help you")
-
+    speak("I am Jarvis made by Dhanraj. Please tell me how may I help you")
+    
+#this function for taking input from voice
 def takeCommand():
 
 
@@ -57,8 +58,8 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('ranvirkardhanraj007@gmail.com', '9890802923')
-    server.sendmail('ranvirkardhanraj007@gmail.com', to, content)
+    server.login('entermail', 'enter your password')
+    server.sendmail('entermail', to, content)
     server.close()
 
 if __name__ == "__main__":
@@ -68,7 +69,7 @@ if __name__ == "__main__":
         query = takeCommand().lower()
 
         if 'wikipedia' in query:
-            print("you say:"+query)
+         
             speak('Searching Wikipedia...')
             query = query.replace("wikipedia", "")
             results = wikipedia.summary(query, sentences=2)
@@ -112,46 +113,28 @@ if __name__ == "__main__":
 
 
 
-        elif 'email to dada' in query:
+        elif 'email to dhanraj' in query:
 
             try:
                 speak("What should I say?")
+                #please give me feedback
                 content = takeCommand()
-                to = "uday.iicmr@gmail.com"
+             
+                to = "ranvirkardhanraj007@gmail.com"
                 sendEmail(to, content)
                 speak("Email has been sent!")
             except Exception as e:
                 print(e)
                 speak("Sorry sir. I am not able to send this email")
+                speak("Sorry Dhanraj Bhai")
 
-        elif 'email to sahi dada' in query:
-
-            try:
-                speak("What should I say?")
-                content = takeCommand()
-                to = "ranvirkarsainath@gmail.com"
-                sendEmail(to, content)
-                speak("Email has been sent!")
-            except Exception as e:
-                print(e)
-                speak("Sorry sir. I am not able to send this email")
-
-        elif 'email to baba' in query:
-
-            try:
-                speak("What should I say?")
-                content = takeCommand()
-                to = "ranvirkar.baburao@gmail.com"
-                sendEmail(to, content)
-                speak("Email has been sent!")
-            except Exception as e:
-                print(e)
-                speak("Sorry sir. I am not able to send this email")
+        
 
         elif "location" in query:
 
             print("you say "+query)
             speak("wait a minite sir")
+            #it give your current location information using ip address
             res = requests.get("https://ipinfo.io/")
             data = res.json()
             position = data['loc'].split(',')
@@ -170,6 +153,7 @@ if __name__ == "__main__":
             myscreenshot = pyautogui.screenshot()
             speak("what should be name of screenshot")
             ssname = takeCommand()
+            #myscreenshot.save('give path where to save'+ssname+'.png') example
             myscreenshot.save('C:\\Users\\Unique pc\\PycharmProjects\\chatbot\\screenshot\\'+ssname+'.png')
 
         elif "set brightness low" in query:
@@ -184,6 +168,7 @@ if __name__ == "__main__":
 
             try:
                 speak("what will be the percentage of brightness")
+                #say only digit ex. 20,30 in between 0 to 100
                 ans = takeCommand()
                 ll = ans.split(' ')
                 anss = ll[0]
