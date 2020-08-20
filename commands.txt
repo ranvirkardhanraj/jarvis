@@ -1,0 +1,24 @@
+you have 5 chance to open jarvis function otherwise it terminates program
+you need strong internet 
+(password) DJ
+(say what you want to know) wikipedia
+open youtube
+open google
+open stack overflow
+play music
+stop 
+pause
+unpause
+rewind
+the time
+open project
+open images
+email to dhanraj (for feedback)
+location
+thank you
+take screenshot
+set brightness low
+set brightness full
+set brightness (give number in between 0 to 100 ex. 20)
+bye or see you 
+
